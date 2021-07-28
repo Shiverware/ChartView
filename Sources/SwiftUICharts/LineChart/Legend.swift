@@ -95,7 +95,7 @@ struct Legend_Previews: PreviewProvider {
   static var previews: some View {
     VStack {
       // TODO: Need to improve Legend to have flexible rows and better and more accurate axis labels
-      LineView(data: [1, 2],showLegend: true, style: Styles.lineChartStyleOne, legendSpecifier: "%.0f")
+      LineChartView(data: [1, 2],showLegend: true, style: Styles.lineChartStyleOne, legendSpecifier: "%.0f")
         .frame(width: 300.0, height: 300.0)
         .background(Color.yellow)
       

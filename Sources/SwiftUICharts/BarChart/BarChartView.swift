@@ -12,7 +12,7 @@ public struct BarChartView : View {
   @Environment(\.colorScheme) var colorScheme: ColorScheme
   private var data: ChartData
   public var title: String?
-  public var legend: String?
+  public var subtitle: String?
   public var style: ChartStyle
   public var darkModeStyle: ChartStyle
   public var dropShadow: Bool
@@ -23,7 +23,7 @@ public struct BarChartView : View {
   
   public init(data: ChartData,
               title: String? = nil,
-              legend: String? = nil,
+              subtitle: String? = nil,
               showLegend: Bool = true,
               style: ChartStyle = Styles.barChartStyleOrangeLight,
               dropShadow: Bool = true,
@@ -32,7 +32,7 @@ public struct BarChartView : View {
               animatedToBack: Bool = false){
     self.data = data
     self.title = title
-    self.legend = legend
+    self.subtitle = subtitle
     self.showLegend = showLegend
     self.style = style
     self.darkModeStyle = style.darkModeStyle != nil ? style.darkModeStyle! : Styles.barChartStyleOrangeDark
@@ -54,7 +54,7 @@ public struct BarChartView : View {
           .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.textColor : self.style.textColor)
       }
       
-      if let legend = self.legend {
+      if let legend = self.subtitle {
         Text(legend)
           .font(.callout)
           .foregroundColor(self.colorScheme == .dark ? self.darkModeStyle.legendTextColor : self.style.legendTextColor)
@@ -107,7 +107,7 @@ struct ChartView_Previews : PreviewProvider {
         
         BarChartView(data: ChartView_Previews.testData,
                      title: nil,
-                     legend: nil,
+                     subtitle: nil,
                      valueSpecifier: "%.2f")
           .frame(width: 300.0, height: 300.0)
         
