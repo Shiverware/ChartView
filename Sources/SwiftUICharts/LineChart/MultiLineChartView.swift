@@ -46,7 +46,7 @@ public struct MultiLineChartView: View {
     var frame = CGSize(width: 180, height: 120)
     private var rateValue: Int?
     
-    public init(data: [([Double], GradientColor)],
+    public init(data: [([Double], ChartGradientColor)],
                 title: String,
                 legend: String? = nil,
                 style: ChartStyle = Styles.lineChartStyleOne,
@@ -157,7 +157,7 @@ public struct MultiLineChartView: View {
 struct MultiWidgetView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MultiLineChartView(data: [([8,23,54,32,12,37,7,23,43], GradientColors.orange)], title: "Line chart", legend: "Basic")
+            MultiLineChartView(data: [([8,23,54,32,12,37,7,23,43], ChartGradientColors.orange)], title: "Line chart", legend: "Basic")
                 .environment(\.colorScheme, .light)
         }
     }

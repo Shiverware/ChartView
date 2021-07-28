@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-public struct Colors {
+public struct ChartColors {
     public static let color1:Color = Color(hexString: "#E2FAE7")
     public static let color1Accent:Color = Color(hexString: "#72BF82")
     public static let color2:Color = Color(hexString: "#EEF1FF")
@@ -30,7 +30,7 @@ public struct Colors {
     public static let BorderBlue:Color = Color(hexString: "#4EBCFF")
 }
 
-public struct GradientColor {
+public struct ChartGradientColor {
     public let start: Color
     public let end: Color
     
@@ -44,55 +44,55 @@ public struct GradientColor {
     }
 }
 
-public struct GradientColors {
-    public static let orange = GradientColor(start: Colors.OrangeStart, end: Colors.OrangeEnd)
-    public static let blue = GradientColor(start: Colors.GradientPurple, end: Colors.GradientNeonBlue)
-    public static let green = GradientColor(start: Color(hexString: "0BCDF7"), end: Color(hexString: "A2FEAE"))
-    public static let blu = GradientColor(start: Color(hexString: "0591FF"), end: Color(hexString: "29D9FE"))
-    public static let bluPurpl = GradientColor(start: Color(hexString: "4ABBFB"), end: Color(hexString: "8C00FF"))
-    public static let purple = GradientColor(start: Color(hexString: "741DF4"), end: Color(hexString: "C501B0"))
-    public static let prplPink = GradientColor(start: Color(hexString: "BC05AF"), end: Color(hexString: "FF1378"))
-    public static let prplNeon = GradientColor(start: Color(hexString: "FE019A"), end: Color(hexString: "FE0BF4"))
-    public static let orngPink = GradientColor(start: Color(hexString: "FF8E2D"), end: Color(hexString: "FF4E7A"))
+public struct ChartGradientColors {
+    public static let orange = ChartGradientColor(start: ChartColors.OrangeStart, end: ChartColors.OrangeEnd)
+    public static let blue = ChartGradientColor(start: ChartColors.GradientPurple, end: ChartColors.GradientNeonBlue)
+    public static let green = ChartGradientColor(start: Color(hexString: "0BCDF7"), end: Color(hexString: "A2FEAE"))
+    public static let blu = ChartGradientColor(start: Color(hexString: "0591FF"), end: Color(hexString: "29D9FE"))
+    public static let bluPurpl = ChartGradientColor(start: Color(hexString: "4ABBFB"), end: Color(hexString: "8C00FF"))
+    public static let purple = ChartGradientColor(start: Color(hexString: "741DF4"), end: Color(hexString: "C501B0"))
+    public static let prplPink = ChartGradientColor(start: Color(hexString: "BC05AF"), end: Color(hexString: "FF1378"))
+    public static let prplNeon = ChartGradientColor(start: Color(hexString: "FE019A"), end: Color(hexString: "FE0BF4"))
+    public static let orngPink = ChartGradientColor(start: Color(hexString: "FF8E2D"), end: Color(hexString: "FF4E7A"))
 }
 
 public struct Styles {
     public static let lineChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
+        accentColor: ChartColors.OrangeStart,
+        secondGradientColor: ChartColors.OrangeEnd,
         textColor: Color.black,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
     public static let barChartStyleOrangeLight = ChartStyle(
         backgroundColor: Color.white,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
+        accentColor: ChartColors.OrangeStart,
+        secondGradientColor: ChartColors.OrangeEnd,
         textColor: Color.black,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
     public static let barChartStyleOrangeDark = ChartStyle(
         backgroundColor: Color.black,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
+        accentColor: ChartColors.OrangeStart,
+        secondGradientColor: ChartColors.OrangeEnd,
         textColor: Color.white,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
     public static let barChartStyleNeonBlueLight = ChartStyle(
         backgroundColor: Color.white,
-        accentColor: Colors.GradientNeonBlue,
-        secondGradientColor: Colors.GradientPurple,
+        accentColor: ChartColors.GradientNeonBlue,
+        secondGradientColor: ChartColors.GradientPurple,
         textColor: Color.black,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
     public static let barChartStyleNeonBlueDark = ChartStyle(
         backgroundColor: Color.black,
-        accentColor: Colors.GradientNeonBlue,
-        secondGradientColor: Colors.GradientPurple,
+        accentColor: ChartColors.GradientNeonBlue,
+        secondGradientColor: ChartColors.GradientPurple,
         textColor: Color.white,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
@@ -115,16 +115,16 @@ public struct Styles {
     
     public static let pieChartStyleOne = ChartStyle(
         backgroundColor: Color.white,
-        accentColor: Colors.OrangeEnd,
-        secondGradientColor: Colors.OrangeStart,
+        accentColor: ChartColors.OrangeEnd,
+        secondGradientColor: ChartColors.OrangeStart,
         textColor: Color.black,
         legendTextColor: Color.gray,
         dropShadowColor: Color.gray)
     
     public static let lineViewDarkMode = ChartStyle(
         backgroundColor: Color.black,
-        accentColor: Colors.OrangeStart,
-        secondGradientColor: Colors.OrangeEnd,
+        accentColor: ChartColors.OrangeStart,
+        secondGradientColor: ChartColors.OrangeEnd,
         textColor: Color.white,
         legendTextColor: Color.white,
         dropShadowColor: Color.gray)
@@ -149,7 +149,7 @@ public struct ChartForm {
 public class ChartStyle {
     public var backgroundColor: Color
     public var accentColor: Color
-    public var gradientColor: GradientColor
+    public var gradientColor: ChartGradientColor
     public var textColor: Color
     public var legendTextColor: Color
     public var dropShadowColor: Color
@@ -158,13 +158,13 @@ public class ChartStyle {
     public init(backgroundColor: Color, accentColor: Color, secondGradientColor: Color, textColor: Color, legendTextColor: Color, dropShadowColor: Color){
         self.backgroundColor = backgroundColor
         self.accentColor = accentColor
-        self.gradientColor = GradientColor(start: accentColor, end: secondGradientColor)
+        self.gradientColor = ChartGradientColor(start: accentColor, end: secondGradientColor)
         self.textColor = textColor
         self.legendTextColor = legendTextColor
         self.dropShadowColor = dropShadowColor
     }
     
-    public init(backgroundColor: Color, accentColor: Color, gradientColor: GradientColor, textColor: Color, legendTextColor: Color, dropShadowColor: Color){
+    public init(backgroundColor: Color, accentColor: Color, gradientColor: ChartGradientColor, textColor: Color, legendTextColor: Color, dropShadowColor: Color){
         self.backgroundColor = backgroundColor
         self.accentColor = accentColor
         self.gradientColor = gradientColor
@@ -175,8 +175,8 @@ public class ChartStyle {
     
     public init(formSize: CGSize){
         self.backgroundColor = Color.white
-        self.accentColor = Colors.OrangeStart
-        self.gradientColor = GradientColors.orange
+        self.accentColor = ChartColors.OrangeStart
+        self.gradientColor = ChartGradientColors.orange
         self.legendTextColor = Color.gray
         self.textColor = Color.black
         self.dropShadowColor = Color.gray
@@ -214,19 +214,19 @@ public class ChartData: ObservableObject, Identifiable {
 }
 
 public class MultiLineChartData: ChartData {
-    var gradient: GradientColor
+    var gradient: ChartGradientColor
     
-    public init<N: BinaryFloatingPoint>(points:[N], gradient: GradientColor) {
+    public init<N: BinaryFloatingPoint>(points:[N], gradient: ChartGradientColor) {
         self.gradient = gradient
         super.init(points: points)
     }
     
     public init<N: BinaryFloatingPoint>(points:[N], color: Color) {
-        self.gradient = GradientColor(start: color, end: color)
+        self.gradient = ChartGradientColor(start: color, end: color)
         super.init(points: points)
     }
     
-    public func getGradient() -> GradientColor {
+    public func getGradient() -> ChartGradientColor {
         return self.gradient
     }
 }

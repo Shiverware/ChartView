@@ -44,10 +44,10 @@ struct Legend: View {
             ForEach((0...4), id: \.self) { height in
                 HStack(alignment: .center){
                     Text("\(self.getYLegendSafe(height: height), specifier: specifier)").offset(x: 0, y: self.getYposition(height: height) )
-                        .foregroundColor(Colors.LegendText)
+                        .foregroundColor(ChartColors.LegendText)
                         .font(.caption)
                     self.line(atHeight: self.getYLegendSafe(height: height), width: self.frame.width)
-                        .stroke(self.colorScheme == .dark ? Colors.LegendDarkColor : Colors.LegendColor, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5,height == 0 ? 0 : 10]))
+                        .stroke(self.colorScheme == .dark ? ChartColors.LegendDarkColor : ChartColors.LegendColor, style: StrokeStyle(lineWidth: 1.5, lineCap: .round, dash: [5,height == 0 ? 0 : 10]))
                         .opacity((self.hideHorizontalLines && height != 0) ? 0 : 1)
                         .rotationEffect(.degrees(180), anchor: .center)
                         .rotation3DEffect(.degrees(180), axis: (x: 0, y: 1, z: 0))
@@ -92,9 +92,23 @@ struct Legend: View {
 }
 
 struct Legend_Previews: PreviewProvider {
-    static var previews: some View {
-        GeometryReader{ geometry in
-            Legend(data: ChartData(points: [0.2,0.4,1.4,4.5]), frame: .constant(geometry.frame(in: .local)), hideHorizontalLines: .constant(false))
-        }.frame(width: 320, height: 200)
+  static var previews: some View {
+    VStack {
+      // TODO: Need to improve Legend to have flexible rows and better and more accurate axis labels
+      LineView(data: [1, 2],showLegend: true, style: Styles.lineChartStyleOne, legendSpecifier: "%.0f")
+        .frame(width: 300.0, height: 300.0)
+        .background(Color.yellow)
+      
+      Spacer()
+      
+      GeometryReader{ geometry in
+        Legend(
+          data: ChartData(points: [1, 2, 3, 4, 5]),
+          frame: .constant(geometry.frame(in: .local)),
+          hideHorizontalLines: .constant(false),
+          specifier: "%.0f"
+        )
+      }.frame(width: 320, height: 200)
     }
+  }
 }
